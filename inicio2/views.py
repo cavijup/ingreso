@@ -14,6 +14,7 @@ from .models import VerificationToken
 # Importaciones adicionales para views.py
 from .forms import PasswordResetRequestForm, PasswordResetForm
 from .models import PasswordResetToken
+from django.conf import settings
 
 # Función para manejar la redirección desde la raíz
 def home_redirect(request):
@@ -45,7 +46,7 @@ def register_view(request):
             send_mail(
                 mail_subject,
                 message,
-                'noreply@yourapp.com',
+                settings.DEFAULT_FROM_EMAIL,
                 [user.email],
                 html_message=message,
                 fail_silently=False,
@@ -135,7 +136,7 @@ def password_reset_request(request):
             send_mail(
                 mail_subject,
                 message,
-                'noreply@yourapp.com',
+                settings.DEFAULT_FROM_EMAIL,
                 [user.email],
                 html_message=message,
                 fail_silently=False,
