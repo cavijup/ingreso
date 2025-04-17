@@ -87,14 +87,15 @@ WSGI_APPLICATION = 'inicio.wsgi.application'
 
 # Database documentation https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Usar la variable de entorno DATABASE_URL o la URL predeterminada para desarrollo local
+database_url = os.environ.get('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/mysite')
+
 DATABASES = {
     'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default=database_url,
         conn_max_age=600
     )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
