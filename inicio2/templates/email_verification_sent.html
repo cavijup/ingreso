@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Verificación de Correo Electrónico{% endblock %}
+
+{% block extra_styles %}
+.verification-icon {
+    font-size: 60px;
+    color: #43c6ac;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.verification-icon i {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: #e8f7f2;
+    border-radius: 50%;
+}
+.verification-links {
+    margin-top: 30px;
+    text-align: center;
+}
+.verification-links a {
+    color: #2c7a50;
+    text-decoration: underline;
+}
+{% endblock %}
+
+{% block content %}
+<div class="verification-icon">
+    <i>✉️</i>
+</div>
+
+<h1>Verifica tu Correo Electrónico</h1>
+
+<p>Hemos enviado un enlace de verificación a tu dirección de correo electrónico. Por favor, revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.</p>
+
+<p>Si no recibes el correo electrónico en unos minutos, revisa tu carpeta de spam o correo no deseado.</p>
+
+<div class="verification-links">
+    <a href="{% url 'home' %}">Volver a la página principal</a>
+</div>
+{% endblock %}

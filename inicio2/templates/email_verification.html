@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Verifica tu dirección de correo electrónico</h2>
+        <p>Hola {{ user.username }},</p>
+        <p>Gracias por registrarte. Para activar tu cuenta, haz clic en el siguiente enlace:</p>
+        <p>
+            <a class="button" href="http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}">
+                Verificar dirección de correo electrónico
+            </a>
+        </p>
+        <p>O copia y pega la siguiente URL en tu navegador:</p>
+        <p>http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}</p>
+        <p>Este enlace será válido durante 24 horas.</p>
+        <p>Si no solicitaste este correo, puedes ignorarlo.</p>
+        <p>Saludos,<br>El equipo de Mi Aplicación</p>
+    </div>
+</body>
+</html>
