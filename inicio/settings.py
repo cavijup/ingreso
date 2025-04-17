@@ -153,13 +153,24 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Para desarrollo
 # En producción, configurar un backend real:
 # Configuración de correo electrónico
+
+DEFAULT_FROM_EMAIL = 'diegoalgtr1@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = DEFAULT_FROM_EMAIL            #
+EMAIL_HOST_PASSWORD = 'kiwk jbah leds dfdf'
+
+
+"""
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'  # Este valor es literal, debe ser 'apikey'
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'diegoalgtr1@gmail.com')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'diegoalgtr1@gmail.com')"""
 
 # Configuración de autenticación
 LOGIN_REDIRECT_URL = 'dashboard'  # Redirigir después del login
